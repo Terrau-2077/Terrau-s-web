@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>个人网站</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Lora&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- 右上角点赞按钮 -->
+    <button class="like-btn" id="likeBtn" title="点赞">
+        <span class="like-icon" id="likeIcon">&#10084;</span>
+        <span class="like-count" id="likeCount">0</span>
+    </button>
+    <!-- 顶部格言美化区 -->
+    <section class="motto-section upgraded-motto">
+        <h1 class="motto motto-gradient-text">天行健，君子以自强不息</h1>
+    </section>
+    
+    <!-- 沉浸式头部 -->
+    <header class="hero" style="background-image: url('images/45e0c300093792d040e813ed479fd4d.jpg');">
+        <div class="hero-overlay">
+            <!-- 个人基本信息介绍（可直接修改） -->
+            <div class="hero-info glass-card">
+                <h1 class="hero-name">Terrau
+                <p class="hero-role">内容创作者 | Agent Engineer</p>
+                <p class="hero-contact">邮箱：Terrau2077@168.com</p>
+                <!-- 可继续添加更多基本信息，如学校、城市等 -->
+            </div>
+        </div>
+        <div class="profile-section floating-avatar">
+            <div class="profile-image avatar-glass">
+                <img src="images/35be18bfc4dd1ac914d4b4e224e20be.jpg" alt="个人头像">
+            </div>
+        </div>
+    </header>
+
+    <!-- 全屏轮播区 -->
+    <section class="gallery">
+        <div class="ins-carousel wide-carousel fullscreen-carousel">
+            <div class="carousel-gradient-top"></div>
+            <div class="carousel-gradient-bottom"></div>
+            <div class="ins-slide active"><img src="images/45e0c300093792d040e813ed479fd4d.jpg" alt="风景"></div>
+            <div class="ins-slide"><img src="images/35be18bfc4dd1ac914d4b4e224e20be.jpg" alt="头像"></div>
+            <div class="ins-slide"><img src="images/6e83f0dd16fd3f08a2f5c4729a19aca.jpg" alt="教室实拍"></div>
+            <div class="ins-slide"><img src="images/21b8ff29f27e0196180af1df04c5b27.jpg" alt="教室插画"></div>
+            <div class="ins-slide"><img src="images/40504c56d991cb2702975d0d71067b2.jpg" alt="楼梯WaytoAGI"></div>
+            <button class="ins-prev">&#10094;</button>
+            <button class="ins-next">&#10095;</button>
+            <div class="ins-dots">
+                <span class="dot active"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+            </div>
+        </div>
+    </section>
+
+    <!-- 个人简介（可直接修改下方内容） -->
+    <section class="about-card about-intro-on-hero">
+        <div class="about-card-inner">
+            <h2>关于我</h2>
+            <div class="bio-text">
+                <!-- 直接修改下方内容即可 -->
+                <p>2006年出生，是一名在校大学生，目前在南昌航空大学上大一。</p>
+                <p>目前正在学习做自媒体和AI，目标是成为内容创作者和Agent Engineer。</p>
+                <p>想法很多，正在一步步实现中。</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 个人故事区 -->
+    <section class="timeline">
+        <h2>My Journey</h2>
+        <div class="timeline-container">
+            <!-- 时间轴内容将通过JavaScript动态加载 -->
+        </div>
+    </section>
+
+    <!-- 个人经历（可直接修改下方内容） -->
+    <section class="experience experience-card">
+        <div class="experience-card-inner">
+            <h2>个人经历</h2>
+            <ul class="exp-list">
+                <!-- 直接修改下方内容即可 -->
+                <li>
+                    <span class="exp-year">2024</span>
+                    <div class="exp-detail">
+                        <strong>南昌航空大学</strong>
+                        <p>开始大学生活，主修计算机科学</p>
+                    </div>
+                </li>
+                <li>
+                    <span class="exp-year">2025</span>
+                    <div class="exp-detail">
+                        <strong>自媒体创作</strong>
+                        <p>开始尝试内容创作，在多个平台发布作品</p>
+                    </div>
+                </li>
+                <!-- 可继续添加更多经历 -->
+            </ul>
+        </div>
+    </section>
+
+    <!-- 项目成就（可直接修改下方内容） -->
+    <section class="projects project-card">
+        <div class="project-card-inner">
+            <h2>项目成就</h2>
+            <ul class="project-list">
+                <!-- 直接修改下方内容即可 -->
+                <li>
+                    <span class="project-title">AI切磋大会视觉系统</span>
+                    <span class="project-time">2025</span>
+                    <p class="project-desc">负责AI切磋大会视觉系统的设计与开发，实现了多平台数据可视化。</p>
+                </li>
+                <li>
+                    <span class="project-title">WaytoAGI校园推广</span>
+                    <span class="project-time">2025</span>
+                    <p class="project-desc">组织并参与WaytoAGI品牌在校园的推广活动，提升了AI认知度。</p>
+                </li>
+                <!-- 可继续添加更多项目成就 -->
+            </ul>
+        </div>
+    </section>
+
+    <!-- 社交媒体聚合区 -->
+    <section class="social">
+        <div class="social-container">
+            <!-- 社交媒体图标将通过JavaScript动态加载 -->
+        </div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer>
+        <div class="footer-content">
+            <div class="copyright">©2025 Terrau
+            <div class="social-icons">
+                <a href="https://v.douyin.com/1Ar9g-af0wY/" target="_blank" class="social-icon douyin">
+                    <svg viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z"/>
+                    </svg>
+                </a>
+                <a href="https://www.xiaohongshu.com/user/profile/668760e2000000000f0343c6" target="_blank" class="social-icon xiaohongshu">
+                    <svg viewBox="0 0 32 32" width="28" height="28">
+                        <rect x="0" y="0" width="32" height="32" rx="6" fill="#ff2442"/>
+                        <text x="16" y="21" text-anchor="middle" alignment-baseline="middle" font-size="13" font-family="Arial Black, Arial, sans-serif" font-weight="bold" fill="#fff">小红书</text>
+                    </svg>
+                </a>
+                <a href="https://github.com/Terrau-2077" target="_blank" class="social-icon github">
+                    <svg viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                    </svg>
+                </a>
+                <a href="mailto:Terrau2077@168.com" class="social-icon email">
+                    <svg viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+                    </svg>
+                </a>
+            </div>
+            <div class="back-to-top">↑</div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html> 
