@@ -1,170 +1,296 @@
 <!DOCTYPE html>
-<html lang="zh">
+<html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>个人网站</title>
+    <title>Terrau - AI Explorer & Innovator</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Lora&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <!-- 右上角点赞按钮 -->
-    <button class="like-btn" id="likeBtn" title="点赞">
-        <span class="like-icon" id="likeIcon">&#10084;</span>
-        <span class="like-count" id="likeCount">0</span>
+    <!-- 粒子背景 -->
+    <div id="particles-container">
+        <canvas id="particles-canvas"></canvas>
+    </div>
+
+    <!-- 主题切换器 -->
+    <button id="theme-toggle" aria-label="切换主题">
+        <svg class="sun-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="5"></circle>
+            <path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"></path>
+        </svg>
+        <svg class="moon-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+        </svg>
     </button>
-    <!-- 顶部格言美化区 -->
-    <section class="motto-section upgraded-motto">
-        <h1 class="motto motto-gradient-text">天行健，君子以自强不息</h1>
-    </section>
-    
-    <!-- 沉浸式头部 -->
-    <header class="hero" style="background-image: url('images/45e0c300093792d040e813ed479fd4d.jpg');">
-        <div class="hero-overlay">
-            <!-- 个人基本信息介绍（可直接修改） -->
-            <div class="hero-info glass-card">
-                <h1 class="hero-name">Terrau
-                <p class="hero-role">内容创作者 | Agent Engineer</p>
-                <p class="hero-contact">邮箱：Terrau2077@168.com</p>
-                <!-- 可继续添加更多基本信息，如学校、城市等 -->
-            </div>
-        </div>
-        <div class="profile-section floating-avatar">
-            <div class="profile-image avatar-glass">
-                <img src="images/35be18bfc4dd1ac914d4b4e224e20be.jpg" alt="个人头像">
-            </div>
-        </div>
-    </header>
 
-    <!-- 全屏轮播区 -->
-    <section class="gallery">
-        <div class="ins-carousel wide-carousel fullscreen-carousel">
-            <div class="carousel-gradient-top"></div>
-            <div class="carousel-gradient-bottom"></div>
-            <div class="ins-slide active"><img src="images/45e0c300093792d040e813ed479fd4d.jpg" alt="风景"></div>
-            <div class="ins-slide"><img src="images/35be18bfc4dd1ac914d4b4e224e20be.jpg" alt="头像"></div>
-            <div class="ins-slide"><img src="images/6e83f0dd16fd3f08a2f5c4729a19aca.jpg" alt="教室实拍"></div>
-            <div class="ins-slide"><img src="images/21b8ff29f27e0196180af1df04c5b27.jpg" alt="教室插画"></div>
-            <div class="ins-slide"><img src="images/40504c56d991cb2702975d0d71067b2.jpg" alt="楼梯WaytoAGI"></div>
-            <button class="ins-prev">&#10094;</button>
-            <button class="ins-next">&#10095;</button>
-            <div class="ins-dots">
-                <span class="dot active"></span>
-                <span class="dot"></span>
-                <span class="dot"></span>
-                <span class="dot"></span>
-                <span class="dot"></span>
+    <!-- 主容器 -->
+    <div class="container">
+        <!-- Hero Section -->
+        <section class="hero" id="home">
+            <div class="hero-content">
+                <h1 class="hero-title" id="hero-title"></h1>
+                <p class="hero-subtitle">AI Explorer & Innovator</p>
+                <p class="hero-description">探索人工智能的无限可能，<br>致力于技术创新与未来构建</p>
+                <div class="hero-buttons">
+                    <a href="#portfolio" class="btn btn-primary">查看作品</a>
+                    <a href="#contact" class="btn btn-secondary">联系我</a>
+                </div>
             </div>
-        </div>
-    </section>
-
-    <!-- 个人简介（可直接修改下方内容） -->
-    <section class="about-card about-intro-on-hero">
-        <div class="about-card-inner">
-            <h2>关于我</h2>
-            <div class="bio-text">
-                <!-- 直接修改下方内容即可 -->
-                <p>2006年出生，是一名在校大学生，目前在南昌航空大学上大一。</p>
-                <p>目前正在学习做自媒体和AI，目标是成为内容创作者和Agent Engineer。</p>
-                <p>想法很多，正在一步步实现中。</p>
+            <div class="scroll-indicator">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <polyline points="6,9 12,15 18,9"></polyline>
+                </svg>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- 个人故事区 -->
-    <section class="timeline">
-        <h2>My Journey</h2>
-        <div class="timeline-container">
-            <!-- 时间轴内容将通过JavaScript动态加载 -->
-        </div>
-    </section>
-
-    <!-- 个人经历（可直接修改下方内容） -->
-    <section class="experience experience-card">
-        <div class="experience-card-inner">
-            <h2>个人经历</h2>
-            <ul class="exp-list">
-                <!-- 直接修改下方内容即可 -->
-                <li>
-                    <span class="exp-year">2024</span>
-                    <div class="exp-detail">
-                        <strong>南昌航空大学</strong>
-                        <p>开始大学生活，主修计算机科学</p>
+        <!-- About Section -->
+        <section class="section" id="about">
+            <div class="section-content">
+                <h2 class="section-title">关于我</h2>
+                <div class="about-content">
+                    <div class="about-text">
+                        <p>你好，我是 <strong>Terrau</strong>，一名对人工智能充满热情的在校大学生。</p>
+                        
+                        <h4>我的AI之旅始于一次偶然</h4>
+                        <p>当我第一次看到神经网络能够识别图片时，那一刻的震撼至今难忘。那种从无到有创造智能的感觉，让我在计算机科学的道路上找到了真正的方向。</p>
+                        
+                        <h4>从好奇到专业</h4>
+                        <p>从最基础的机器学习算法开始，我逐渐深入到深度学习的世界。每当成功训练出一个能准确预测的模型，那种成就感是无法言喻的。我喜欢挑战复杂的项目，享受解决技术难题的过程。</p>
+                        
+                        <h4>技术与人文的结合</h4>
+                        <p>我相信技术应该服务于人。因此，我特别关注AI在实际场景中的应用，无论是智能对话系统、计算机视觉项目，还是自然语言处理，都希望能够创造出真正有价值的解决方案。</p>
+                        
+                        <h4>我的信仰</h4>
+                        <p>在快速变化的AI时代，保持学习的心态和创新的勇气是最重要的。我不仅追求技术的深度，更希望通过代码和算法为这个美好的世界贡献自己的一份力量。</p>
                     </div>
-                </li>
-                <li>
-                    <span class="exp-year">2025</span>
-                    <div class="exp-detail">
-                        <strong>自媒体创作</strong>
-                        <p>开始尝试内容创作，在多个平台发布作品</p>
+                    <div class="about-stats">
+                        <div class="stat-item">
+                            <div class="stat-number">3+</div>
+                            <div class="stat-label">年学习经验</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">15+</div>
+                            <div class="stat-label">完成项目</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">8+</div>
+                            <div class="stat-label">技术栈掌握</div>
+                        </div>
                     </div>
-                </li>
-                <!-- 可继续添加更多经历 -->
-            </ul>
-        </div>
-    </section>
-
-    <!-- 项目成就（可直接修改下方内容） -->
-    <section class="projects project-card">
-        <div class="project-card-inner">
-            <h2>项目成就</h2>
-            <ul class="project-list">
-                <!-- 直接修改下方内容即可 -->
-                <li>
-                    <span class="project-title">AI切磋大会视觉系统</span>
-                    <span class="project-time">2025</span>
-                    <p class="project-desc">负责AI切磋大会视觉系统的设计与开发，实现了多平台数据可视化。</p>
-                </li>
-                <li>
-                    <span class="project-title">WaytoAGI校园推广</span>
-                    <span class="project-time">2025</span>
-                    <p class="project-desc">组织并参与WaytoAGI品牌在校园的推广活动，提升了AI认知度。</p>
-                </li>
-                <!-- 可继续添加更多项目成就 -->
-            </ul>
-        </div>
-    </section>
-
-    <!-- 社交媒体聚合区 -->
-    <section class="social">
-        <div class="social-container">
-            <!-- 社交媒体图标将通过JavaScript动态加载 -->
-        </div>
-    </section>
-
-    <!-- 页脚 -->
-    <footer>
-        <div class="footer-content">
-            <div class="copyright">©2025 Terrau
-            <div class="social-icons">
-                <a href="https://v.douyin.com/1Ar9g-af0wY/" target="_blank" class="social-icon douyin">
-                    <svg viewBox="0 0 24 24" fill="currentColor">
-                        <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z"/>
-                    </svg>
-                </a>
-                <a href="https://www.xiaohongshu.com/user/profile/668760e2000000000f0343c6" target="_blank" class="social-icon xiaohongshu">
-                    <svg viewBox="0 0 32 32" width="28" height="28">
-                        <rect x="0" y="0" width="32" height="32" rx="6" fill="#ff2442"/>
-                        <text x="16" y="21" text-anchor="middle" alignment-baseline="middle" font-size="13" font-family="Arial Black, Arial, sans-serif" font-weight="bold" fill="#fff">小红书</text>
-                    </svg>
-                </a>
-                <a href="https://github.com/Terrau-2077" target="_blank" class="social-icon github">
-                    <svg viewBox="0 0 24 24" fill="currentColor">
-                        <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
-                    </svg>
-                </a>
-                <a href="mailto:Terrau2077@168.com" class="social-icon email">
-                    <svg viewBox="0 0 24 24" fill="currentColor">
-                        <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
-                    </svg>
-                </a>
+                </div>
             </div>
-            <div class="back-to-top">↑</div>
-        </div>
-    </footer>
+        </section>
 
-    <script src="js/main.js"></script>
+        <!-- Skills Section -->
+        <section class="section" id="skills">
+            <div class="section-content">
+                <h2 class="section-title">技能专长</h2>
+                <div class="skills-container">
+                    <div class="skills-cloud" id="skills-cloud">
+                        <!-- 技能标签将通过JS动态生成 -->
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Portfolio Section -->
+        <section class="section" id="portfolio">
+            <div class="section-content">
+                <h2 class="section-title">精选作品</h2>
+                <div class="portfolio-grid">
+                    <div class="portfolio-card" data-tilt>
+                        <div class="card-image">
+                            <div class="image-placeholder ai-image">AI</div>
+                        </div>
+                        <div class="card-content">
+                            <h3 class="card-title">智能对话系统</h3>
+                            <p class="card-description">基于Transformer架构的端到端对话生成系统，支持多轮对话和上下文理解。</p>
+                            <div class="card-tags">
+                                <span class="tag">Python</span>
+                                <span class="tag">PyTorch</span>
+                                <span class="tag">Transformer</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="portfolio-card" data-tilt>
+                        <div class="card-image">
+                            <div class="image-placeholder ml-image">ML</div>
+                        </div>
+                        <div class="card-content">
+                            <h3 class="card-title">计算机视觉项目</h3>
+                            <p class="card-description">使用CNN和ResNet进行图像分类与目标检测，达到了95%以上的准确率。</p>
+                            <div class="card-tags">
+                                <span class="tag">TensorFlow</span>
+                                <span class="tag">CNN</span>
+                                <span class="tag">OpenCV</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="portfolio-card" data-tilt>
+                        <div class="card-image">
+                            <div class="image-placeholder nlp-image">NLP</div>
+                        </div>
+                        <div class="card-content">
+                            <h3 class="card-title">自然语言处理</h3>
+                            <p class="card-description">文本情感分析和关键词提取系统，应用于社交媒体内容分析。</p>
+                            <div class="card-tags">
+                                <span class="tag">NLTK</span>
+                                <span class="tag">spaCy</span>
+                                <span class="tag">BERT</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="portfolio-card" data-tilt>
+                        <div class="card-image">
+                            <div class="image-placeholder data-image">Data</div>
+                        </div>
+                        <div class="card-content">
+                            <h3 class="card-title">数据挖掘平台</h3>
+                            <p class="card-description">构建完整的数据分析平台，包含数据清洗、特征工程和可视化功能。</p>
+                            <div class="card-tags">
+                                <span class="tag">Pandas</span>
+                                <span class="tag">Matplotlib</span>
+                                <span class="tag">Web开发</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Personal Experience Section -->
+        <section class="section" id="blog">
+            <div class="section-content">
+                <h2 class="section-title">个人经历</h2>
+                <div class="blog-grid">
+                    <article class="blog-card">
+                        <div class="experience-image">
+                            <img src="imgs/tibet_mountains.jpg" alt="2025年7月西藏之旅" onerror="this.style.display='none'">
+                            <div class="image-placeholder tibet-image">西藏之旅</div>
+                        </div>
+                        <div class="blog-content">
+                            <div class="blog-meta">
+                                <span class="date">2025年7月</span>
+                                <span class="category">旅行体验</span>
+                            </div>
+                            <h3 class="blog-title">西藏之旅：一次心灵净化的高原体验</h3>
+                            <p class="blog-excerpt">走进神圣的雪域高原，感受布达拉宫的庄严与圣湖的宁静。在海拔4000米的高原上，不仅挑战了身体的极限，更在心灵上获得了前所未有的平静与启发。这次旅行让我深刻理解了坚持与信念的力量。</p>
+                        </div>
+                    </article>
+                    <article class="blog-card">
+                        <div class="experience-image">
+                            <img src="imgs/wteam_ai_maker_festival_7.jpg" alt="2025年8月wteamAI创客节" onerror="this.style.display='none'">
+                            <div class="image-placeholder festival-image">AI创客节</div>
+                        </div>
+                        <div class="blog-content">
+                            <div class="blog-meta">
+                                <span class="date">2025年8月</span>
+                                <span class="category">创客活动</span>
+                            </div>
+                            <h3 class="blog-title">wteamAI创客节：与AI同行者的思想碰撞</h3>
+                            <p class="blog-excerpt">在wteamAI创客节上，我与来自全国各地的AI爱好者和技术专家进行了深入的交流。活动不仅让我见证了AI技术的最新发展，更让我明白了团队合作的重要性。通过与同行的思想碰撞，我对AI技术的应用前景有了更清晰的认识。</p>
+                        </div>
+                    </article>
+                    <article class="blog-card">
+                        <div class="experience-image">
+                            <img src="imgs/way_to_agi_hackathon_4.jpg" alt="2025年10月26日Way to AGI全球黑客松" onerror="this.style.display='none'">
+                            <div class="image-placeholder hackathon-image">AGI黑客松</div>
+                        </div>
+                        <div class="blog-content">
+                            <div class="blog-meta">
+                                <span class="date">2025年10月26日</span>
+                                <span class="category">黑客松竞赛</span>
+                            </div>
+                            <h3 class="blog-title">Way to AGI全球黑客松：向通用人工智能进发</h3>
+                            <p class="blog-excerpt">参加Way to AGI全球黑客松是一次令人难忘的挑战。48小时的极限编程，我们团队专注于开发一个智能推荐系统的原型。比赛过程中不仅锻炼了技术能力，更重要的是体验了与全球顶尖开发者同台竞技的紧张与兴奋。这次经历让我对AGI的实现路径有了更深入的思考。</p>
+                        </div>
+                    </article>
+                    <article class="blog-card">
+                        <div class="experience-image">
+                            <img src="imgs/aipo_campus_investment_1.jpg" alt="2025年11月8日AIPO校园创投" onerror="this.style.display='none'">
+                            <div class="image-placeholder investment-image">校园创投</div>
+                        </div>
+                        <div class="blog-content">
+                            <div class="blog-meta">
+                                <span class="date">2025年11月8日</span>
+                                <span class="category">创投活动</span>
+                            </div>
+                            <h3 class="blog-title">AIPO校园创投：技术与商业的完美结合</h3>
+                            <p class="blog-excerpt">在AIPO校园创投活动中，我作为参赛者向投资人展示了我们的AI项目。这不仅是一次商业思维的洗礼，更是技术与商业价值结合的实践体验。通过与投资人的交流，我学到了如何用商业语言表达技术价值，以及如何构建可持续的商业模式。这次经历为我的创业之路奠定了重要基础。</p>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        
+
+        <!-- Contact Section -->
+        <section class="section" id="contact">
+            <div class="section-content">
+                <h2 class="section-title">联系我</h2>
+                <div class="contact-content">
+                    <div class="contact-info">
+                        <p class="contact-description">欢迎与我交流AI技术、项目合作或学术讨论！</p>
+                        <div class="social-links">
+                            <a href="https://github.com/Terrau-2077" target="_blank" class="social-link" data-platform="github">
+                                <svg viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                                </svg>
+                                <span>GitHub</span>
+                            </a>
+                            <a href="https://x.com/Terrau2077" target="_blank" class="social-link" data-platform="x">
+                                <svg viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M18.9 2H22l-8.5 9.7L23.5 22H17l-5.7-7.3L5.3 22H2.2l9.2-10.5L.9 2h6.8l5.1 6.5L18.9 2zM8.1 3.5H4.1L20 20.5h4L8.1 3.5z"/>
+                                </svg>
+                                <span>X</span>
+                            </a>
+                            <a href="https://www.douyin.com/user/self?from_tab_name=main&showTab=like" target="_blank" class="social-link" data-platform="douyin">
+                                <svg viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                                    <circle cx="12" cy="12" r="3" fill="currentColor"/>
+                                </svg>
+                                <span>抖音</span>
+                            </a>
+                            <a href="https://www.xiaohongshu.com/user/profile/68948f4d0000000028016ea3" target="_blank" class="social-link" data-platform="xiaohongshu">
+                                <svg viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M4 4h16v2H4V4zm0 14h16v2H4v-2zm6-8h10v2H10v-2z"/>
+                                    <rect x="6" y="8" width="12" height="8" rx="2" fill="currentColor"/>
+                                </svg>
+                                <span>小红书</span>
+                            </a>
+                            <a href="mailto:Terrau2077@168.com" class="social-link" data-platform="email">
+                                <svg viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                                    <polyline points="22,6 12,13 2,6"/>
+                                </svg>
+                                <span>Email</span>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="contact-form">
+                        <form id="contact-form">
+                            <div class="form-group">
+                                <input type="text" id="name" name="name" placeholder="您的姓名" required>
+                            </div>
+                            <div class="form-group">
+                                <input type="email" id="email" name="email" placeholder="邮箱地址" required>
+                            </div>
+                            <div class="form-group">
+                                <textarea id="message" name="message" placeholder="您的消息" rows="5" required></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary">发送消息</button>
+                        </form>
+                        <p class="form-note">点击发送后将调用您的默认邮件客户端，消息将发送至 Terrau2077@168.com</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <script src="script.js"></script>
 </body>
-</html> 
+</html>
